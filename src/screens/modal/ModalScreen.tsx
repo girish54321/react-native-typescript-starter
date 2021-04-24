@@ -6,9 +6,10 @@ import { NavigationScreen } from "@navigation/NavigationTypings";
 import { Route } from 'models/constants/Route';
 import React from "react";
 import { StyleSheet } from "react-native";
+import { ModalScreenProps } from './ModalScreenProps';
 
-export const ModalScreen : NavigationScreen<Route.MODAL> = props => {
-    const { navigation, route } = props;
+export const ModalScreen: NavigationScreen<Route.MODAL> = (props: ModalScreenProps) => {
+    const { navigation, route, onClose } = props;
 
     const dimiss = () => {
         navigation.goBack();
@@ -33,20 +34,20 @@ export const ModalScreen : NavigationScreen<Route.MODAL> = props => {
 }
 
 const style = StyleSheet.create({
-    background : {
-        flex : 1
+    background: {
+        flex: 1
     },
-    modal : {
-        borderRadius : 8,
-        width : '80%',
-        minHeight : 200
+    modal: {
+        borderRadius: 8,
+        width: '80%',
+        minHeight: 200
     },
-    controls : {
-        padding : 10
+    controls: {
+        padding: 10
     },
-    body : {
-        paddingStart : 20,
-        paddingEnd : 20,
-        paddingBottom : 20
+    body: {
+        paddingStart: 20,
+        paddingEnd: 20,
+        paddingBottom: 20
     }
 });

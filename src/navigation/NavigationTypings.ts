@@ -19,7 +19,7 @@ export type StackArguments = {
  * Navigation options for the root stack
  */
 export const ROOT_STACK_OPTIONS: StackNavigationOptions = {
-    title: "Starter",
+    title: "Starter App",
     cardOverlayEnabled: true,
     cardStyleInterpolator: modalStyleInterpolator,
     cardStyle: { backgroundColor: 'transparent' }
