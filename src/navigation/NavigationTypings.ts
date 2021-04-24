@@ -22,7 +22,7 @@ export const ROOT_STACK_OPTIONS: StackNavigationOptions = {
     title: "Starter App",
     cardOverlayEnabled: true,
     cardStyleInterpolator: modalStyleInterpolator,
-    cardStyle: { backgroundColor: 'transparent' }
+    cardStyle: { backgroundColor: 'transparent' },
 }
 
 /**

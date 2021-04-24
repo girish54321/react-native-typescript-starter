@@ -1,27 +1,27 @@
 import { Route } from "models/constants/Route";
+import { fetchExample } from "Network/index";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { Column, Row } from "../../components/Flex/Flex";
 import { useLocalization } from "../../components/LocalizedContext/LocalizationContext";
 import { useTheme } from "../../components/ThemeContext/ThemeContext";
 import { Themed } from "../../components/Themed/Themed";
 import { NavigationScreen } from "../../navigation/NavigationTypings";
 
-export const WelcomeScreen : NavigationScreen<Route.WELCOME> = props => {
+export const WelcomeScreen: NavigationScreen<Route.WELCOME> = props => {
     const { navigation } = props;
     const { theme, supportedThemes, changeTheme } = useTheme();
     const { supportedLanguages, changeLanguage } = useLocalization();
 
     const showHelp = () => {
         navigation.navigate(Route.MODAL, {
-            builder : () => (
+            builder: () => (
                 <Column alignItems='center' justifyContent='center'>
                     <Themed.LocalizedText style={style.modalTitle}>
                         starterHelp
                     </Themed.LocalizedText>
-
                     <Column>
-                        <Themed.LocalizedText style={[style.modalText, { marginBottom : 15 }]}>
+                        <Themed.LocalizedText style={[style.modalText, { marginBottom: 15 }]}>
                             editThemes
                         </Themed.LocalizedText>
 
@@ -29,14 +29,25 @@ export const WelcomeScreen : NavigationScreen<Route.WELCOME> = props => {
                             editLanguages
                         </Themed.LocalizedText>
                     </Column>
-                </Column>   
+                </Column>
             )
         });
     }
 
+    const getPhoto = () => {
+        fetchExample()
+            .then((res) => {
+                console.log("HEY IMAGE", res);
+            })
+            .catch((err) => {
+                // Handle your API error
+                console.error("Fetch Example Error: ", err);
+            });
+    }
+
     return (
-        <Column alignItems="center" justifyContent="center" style={[style.container, { backgroundColor : theme.colors.background }]}>
-            <Column alignItems='center' justifyContent='center' style={[style.column, { borderColor : theme.colors.onSurface }]}>
+        <Column alignItems="center" justifyContent="center" style={[style.container, { backgroundColor: theme.colors.background }]}>
+            <Column alignItems='center' justifyContent='center' style={[style.column, { borderColor: theme.colors.onSurface }]}>
                 <Themed.LocalizedText style={style.title}>
                     welcomeToStarter
                 </Themed.LocalizedText>
@@ -50,7 +61,7 @@ export const WelcomeScreen : NavigationScreen<Route.WELCOME> = props => {
                 {supportedThemes.map(t => (
                     <Themed.Button key={t.name} context='primary' effect='opacity' style={style.button} onPress={() => changeTheme(t)}>
                         <Themed.LocalizedText context='onPrimary' style={style.center}>
-                            changeTo 
+                            changeTo
 
                             <Themed.Text context='onPrimary'>
                                 {t.name}
@@ -64,7 +75,7 @@ export const WelcomeScreen : NavigationScreen<Route.WELCOME> = props => {
                 {supportedLanguages.map(t => (
                     <Themed.Button key={t} context='secondary' effect='opacity' style={style.button} onPress={() => changeLanguage(t)}>
                         <Themed.LocalizedText context='onPrimary' style={style.center}>
-                            changeTo 
+                            changeTo
 
                             <Themed.Text context='onPrimary'>
                                 {t.toUpperCase()}
@@ -87,53 +98,57 @@ export const WelcomeScreen : NavigationScreen<Route.WELCOME> = props => {
                     </Themed.LocalizedText>
                 </Themed.Button>
             </Row>
+            <Themed.Button context='secondaryVariant' effect='opacity' style={style.button}
+                onPress={getPhoto}>
+                <Text style={{ color: 'red' }}>Name Nameffd</Text>
+            </Themed.Button>
         </Column>
     );
 }
 
 const style = StyleSheet.create({
-    container : {
-        flex : 1,
-        padding : 15
+    container: {
+        flex: 1,
+        padding: 15
     },
-    column : {
-        width : '100%',
-        padding : 15,
-        borderRadius : 6,
-        borderWidth : 1,
-        marginBottom : 15,
+    column: {
+        width: '100%',
+        padding: 15,
+        borderRadius: 6,
+        borderWidth: 1,
+        marginBottom: 15,
     },
-    title : {
-        textAlign : 'center',
-        fontSize : 24,
-        marginBottom : 14
+    title: {
+        textAlign: 'center',
+        fontSize: 24,
+        marginBottom: 14
     },
-    sub : {
-        textAlign : 'center',
-        fontSize : 18,
-        marginBottom : 15
+    sub: {
+        textAlign: 'center',
+        fontSize: 18,
+        marginBottom: 15
     },
-    buttons : {
-        width : '100%',
+    buttons: {
+        width: '100%',
     },
-    button : {
-        width : '100%',
-        marginBottom : 15,
-        borderRadius : 6
+    button: {
+        width: '100%',
+        marginBottom: 15,
+        borderRadius: 6
     },
-    smallButton : {
-        width : '48%',
-        borderRadius : 6
+    smallButton: {
+        width: '48%',
+        borderRadius: 6
     },
-    center : {
-        textAlign : 'center'
+    center: {
+        textAlign: 'center'
     },
-    modalTitle : {
-        fontSize : 18,
-        fontWeight : '700',
-        marginBottom : 15
+    modalTitle: {
+        fontSize: 18,
+        fontWeight: '700',
+        marginBottom: 15
     },
-    modalText : {
-        fontSize : 14
+    modalText: {
+        fontSize: 14
     }
 });
