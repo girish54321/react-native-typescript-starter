@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { AppView, Column } from "../../components/Flex/Flex";
 import { useLocalization } from "../../components/LocalizedContext/LocalizationContext";
-import { useTheme } from "../../components/ThemeContext/ThemeContext";
 import { NavigationScreen } from "../../navigation/NavigationTypings";
 import { Route } from "models/constants/Route";
 import { LocalizedText } from "@components/LocalizedText/LocalizedText";
@@ -11,14 +10,13 @@ import { AppButton } from "@components/Button/Button";
 
 export const WelcomeScreen: NavigationScreen<Route.WELCOME> = props => {
     const { navigation } = props;
-    const { theme, supportedThemes, changeTheme } = useTheme();
     const { supportedLanguages, changeLanguage } = useLocalization();
 
 
     return (
         <AppView>
             <Column alignItems="center" justifyContent="center" style={[style.container,]}>
-                <Column alignItems='center' justifyContent='center' style={[style.column, { borderColor: theme.colors.onSurface }]}>
+                <Column alignItems='center' justifyContent='center' style={[style.column,]}>
                     <LocalizedText style={style.title}>
                         welcomeToStarter
                 </LocalizedText>
@@ -28,19 +26,6 @@ export const WelcomeScreen: NavigationScreen<Route.WELCOME> = props => {
                 </LocalizedText>
                 </Column>
 
-                <Column style={style.buttons}>
-                    {supportedThemes.map(t => (
-                        <AppButton key={t.name} mode="contained" style={style.button} onPress={() => changeTheme(t)}>
-                            <LocalizedText style={style.center}>
-                                changeTo
-
-                            <LocalizedText>
-                                    {t.name}
-                                </LocalizedText>
-                            </LocalizedText>
-                        </AppButton>
-                    ))}
-                </Column>
 
                 <Column style={style.buttons}>
                     {supportedLanguages.map(t => (

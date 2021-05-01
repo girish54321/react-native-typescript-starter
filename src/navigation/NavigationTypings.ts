@@ -2,7 +2,6 @@ import { RouteProp } from '@react-navigation/native';
 import { StackNavigationOptions, StackNavigationProp } from '@react-navigation/stack';
 import { Route } from 'models/constants/Route';
 import { FC, ReactNode } from 'react';
-import { modalStyleInterpolator } from './Interpolators';
 
 /**
  * Determines which params can be passed to which screens
