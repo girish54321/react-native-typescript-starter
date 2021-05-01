@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Text } from 'react-native'
 import { StyleSheet, } from "react-native";
 import { NavigationScreen } from "../../navigation/NavigationTypings";
 import { Route } from "models/constants/Route";
@@ -10,6 +9,7 @@ import { setUserData } from "../../redux/homeImageStore/action";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UserList } from "../../models/responseType/UserListResponse";
 import { ListItem } from "@components/ListItem/ListItem";
+import { Column } from "@components/Flex/Flex";
 
 
 export const UsersScreen: NavigationScreen<Route.WELCOME> = (props: any) => {
@@ -21,22 +21,20 @@ export const UsersScreen: NavigationScreen<Route.WELCOME> = (props: any) => {
     }, [])
 
     return (
-        <SafeAreaView style={style.container}>
-            <ScrollView style={style.scrollView}>
-                {data.users.map((value: UserList, index: Number) => {
-                    return (
-                        <ListItem name={value.name} email={value.email} />
-                    )
-                })}
-            </ScrollView>
-        </SafeAreaView>
+        <ScrollView style={style.scrollView}>
+            {data.users.map((value: UserList, index: Number) => {
+                return (
+                    <ListItem name={value.name} email={value.email} image={"https://www.w3schools.com/w3images/avatar2.png"} />
+                )
+            })}
+        </ScrollView>
     );
 }
 
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 15
+        backgroundColor: 'red'
     },
     scrollView: {
         flex: 1

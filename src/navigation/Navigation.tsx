@@ -8,20 +8,40 @@ import { UsersScreen } from '@screens/UsersScreen/UsersScreen';
 import { WelcomeScreen } from '@screens/welcome/WelcomeScreen';
 import { Route } from 'models/constants/Route';
 import React, { FC, useMemo } from 'react';
-import { HOME_STACK_OPTIONS, MODAL_SCREEN_OPTIONS, ROOT_STACK_OPTIONS, StackArguments } from './NavigationTypings';
+import { HOME_STACK_OPTIONS, MODAL_SCREEN_OPTIONS, USERLIST_STACK_OPTIONS, StackArguments } from './NavigationTypings';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Stack = createStackNavigator<StackArguments>();
+const UserStack = createStackNavigator<StackArguments>();
 const Tab = createBottomTabNavigator();
 export const Navigation: FC = () => {
     const { theme } = useTheme();
 
-    const AppStack = () => {
+    const HomeStack = () => {
         return (
-            <Stack.Navigator mode="modal" screenOptions={ROOT_STACK_OPTIONS}>
+            <Stack.Navigator mode="modal" screenOptions={HOME_STACK_OPTIONS}>
                 <Stack.Screen name={Route.WELCOME} component={WelcomeScreen} />
-                <Stack.Screen name={Route.MODAL} component={ModalScreen} options={MODAL_SCREEN_OPTIONS} />
             </Stack.Navigator>
+        )
+    }
+
+    const UsersListStack = () => {
+        return (
+            <UserStack.Navigator screenOptions={{ ...USERLIST_STACK_OPTIONS, title: "Users" }}>
+                <UserStack.Screen name={Route.USERSCREEN} component={UsersScreen}
+
+                    options={{
+                        title: 'My home',
+                        headerStyle: {
+                            backgroundColor: '#f4511e',
+                            elevation: 22
+                        },
+                        headerTintColor: '#fff',
+                        headerTitleStyle: {
+                            fontWeight: 'bold',
+                        },
+                    }} />
+            </UserStack.Navigator>
         )
     }
 
@@ -56,14 +76,12 @@ export const Navigation: FC = () => {
                     },
                 })}
                 tabBarOptions={{
-                    activeTintColor: 'tomato',
+                    activeTintColor: theme.colors.primary,
                     inactiveTintColor: 'gray',
                 }}
             >
-                <Tab.Screen name={Route.APPSTACK} component={AppStack}
-                    options={{ ...HOME_STACK_OPTIONS, title: "Home" }} />
-                <Tab.Screen name={Route.USERSCREEN} component={UsersScreen}
-                    options={{ ...HOME_STACK_OPTIONS, title: "Users" }} />
+                <Tab.Screen name={Route.APPSTACK} component={HomeStack} options={{ title: "Home" }} />
+                <Tab.Screen name={Route.USERSCREEN} component={UsersListStack} options={{ title: "Users" }} />
             </Tab.Navigator>
         </NavigationContainer>
     );
