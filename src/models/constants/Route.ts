@@ -1,5 +1,7 @@
 
 export enum Route {
     WELCOME = "WELCOME",
-    MODAL = "MODAL"
+    MODAL = "MODAL",
+    USERSCREEN = "USERSCREEN",
+    APPSTACK = "APPSTACK"
 }

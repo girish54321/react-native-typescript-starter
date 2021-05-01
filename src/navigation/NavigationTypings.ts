@@ -19,6 +19,14 @@ export type StackArguments = {
  * Navigation options for the root stack
  */
 export const ROOT_STACK_OPTIONS: StackNavigationOptions = {
+    headerStyle: {
+        backgroundColor: 'ref',
+        elevation: 0
+    },
+    headerTintColor: '#fff'
+}
+
+export const HOME_STACK_OPTIONS: StackNavigationOptions = {
     title: "Starter App",
     cardOverlayEnabled: true,
     cardStyleInterpolator: modalStyleInterpolator,

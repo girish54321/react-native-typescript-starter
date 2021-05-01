@@ -1,12 +1,12 @@
-import { Route } from "models/constants/Route";
-import { fetchExample } from "Network/index";
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import { Column, Row } from "../../components/Flex/Flex";
 import { useLocalization } from "../../components/LocalizedContext/LocalizationContext";
 import { useTheme } from "../../components/ThemeContext/ThemeContext";
 import { Themed } from "../../components/Themed/Themed";
 import { NavigationScreen } from "../../navigation/NavigationTypings";
+import { Route } from "models/constants/Route";
+
 
 export const WelcomeScreen: NavigationScreen<Route.WELCOME> = props => {
     const { navigation } = props;
@@ -32,17 +32,6 @@ export const WelcomeScreen: NavigationScreen<Route.WELCOME> = props => {
                 </Column>
             )
         });
-    }
-
-    const getPhoto = () => {
-        fetchExample()
-            .then((res) => {
-                console.log("HEY IMAGE", res);
-            })
-            .catch((err) => {
-                // Handle your API error
-                console.error("Fetch Example Error: ", err);
-            });
     }
 
     return (
@@ -98,10 +87,6 @@ export const WelcomeScreen: NavigationScreen<Route.WELCOME> = props => {
                     </Themed.LocalizedText>
                 </Themed.Button>
             </Row>
-            <Themed.Button context='secondaryVariant' effect='opacity' style={style.button}
-                onPress={getPhoto}>
-                <Text style={{ color: 'red' }}>Name Nameffd</Text>
-            </Themed.Button>
         </Column>
     );
 }

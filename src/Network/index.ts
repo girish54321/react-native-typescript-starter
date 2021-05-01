@@ -1,40 +1,26 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { BASE_URL } from "./api.constant";
+import { UserList } from '../models/responseType/UserListResponse'
+import { USER_LIST } from "./apiEndpoints";
 const API_HEADER = {
   // "x-api-key": "your-access-token",
 };
 
-/**
- * ? USAGE:
- *
- * import { fetchExample } from "api"
- *
- * fetchExample()
- * .then((res) => {
- *   // Your Magic is here
- * })
- * .catch((err) => {
- *   // Handle your API error
- *   console.error("Fetch Example Error: ", err);
- * });
- *
- */
 
-export const fetchExample = () =>
+export const getUsers = () =>
   new Promise(async (resolve, reject) => {
-    // const url = BASE_URL + "your-url";
-    const url = BASE_URL;
-
+    const url = BASE_URL + USER_LIST;
     axios
       .get(url, {
         headers: API_HEADER,
       })
-      .then((res) => {
-        res && resolve(res.data);
+      .then((res: AxiosResponse) => {
+        res && resolve(res);
       })
       .catch((error) => {
         // handle error
-        reject(error);
-        console.log(error);
+        // reject(error);
+        error && resolve(error.response);
       });
   });
+
