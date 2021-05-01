@@ -1,6 +1,6 @@
-import { TouchableWithoutFeedbackProps } from "react-native";
-
-export interface ButtonProps extends TouchableWithoutFeedbackProps {
-
-    effect? : 'none' | 'opacity' | 'highlight' | 'native';
+export interface ButtonProps {
+    mode?: 'text' | 'outlined' | 'contained';
+    style: any,
+    children: any,
+    onPress: any,
 }

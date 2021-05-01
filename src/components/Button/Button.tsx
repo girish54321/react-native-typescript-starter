@@ -1,31 +1,12 @@
 import React, { FC } from "react";
-import { TouchableHighlight, TouchableNativeFeedback, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 import { ButtonProps } from "./ButtonProps";
+import { Button, } from "react-native-paper";
 
-export const Button : FC<ButtonProps> = props => {
-    const { effect = 'none', style, children, ...rest } = props;
-
-    const computeType = (touchableEffect : string) => {
-        switch (touchableEffect) {
-            case 'opacity':
-                return TouchableOpacity;
-
-            case 'highlight':
-                return TouchableHighlight;
-
-            case 'native':
-                return TouchableNativeFeedback;
-
-            case 'none':
-            default:
-                return TouchableWithoutFeedback;
-        }
-    }
-
-    const Touchable = computeType(effect);
+export const AppButton: FC<ButtonProps> = props => {
+    const { mode, children, style, onPress, ...rest } = props;
     return (
-        <Touchable style={[{ borderRadius : 6, padding : 10 }, style]} {...rest}>
+        <Button onPress={onPress} mode={mode} style={[{ borderRadius: 4, padding: 4 }, style]}>
             {children}
-        </Touchable>
+        </Button>
     );
 }

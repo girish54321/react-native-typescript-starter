@@ -28,15 +28,9 @@ export const ROOT_STACK_OPTIONS: StackNavigationOptions = {
 
 export const HOME_STACK_OPTIONS: StackNavigationOptions = {
     title: "Starter App",
-    cardOverlayEnabled: true,
-    cardStyleInterpolator: modalStyleInterpolator,
-    cardStyle: { backgroundColor: 'transparent' },
 }
 export const USERLIST_STACK_OPTIONS: StackNavigationOptions = {
     title: "Starter App",
-    cardOverlayEnabled: true,
-    cardStyleInterpolator: modalStyleInterpolator,
-
 }
 /**
  * Navigation options for the modal screen

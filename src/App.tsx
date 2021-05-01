@@ -1,27 +1,28 @@
 import React, { FC } from "react";
 import { LocalizationContextProvider } from "./components/LocalizedContext/LocalizationContextProvider";
-import { Theme } from "./components/ThemeContext/ThemeContext";
-import { ThemeContextProvider } from "./components/ThemeContext/ThemeContextProvider";
-const themes = require('./Config/themes.json');
 import translations from "./localization/translations.json";
 import { Navigation } from "./navigation/Navigation";
 //* Redux
 import ReduxThunk from 'redux-thunk'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
 import rootReducer from './redux/rootReducer'
+import { langType } from "redux/langStore/reducers";
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk))
 
 export const App: FC = () => {
-    const initialTheme: Theme = themes[0];
-
     return (
         <Provider store={store}>
-            <ThemeContextProvider initialTheme={initialTheme} supportedThemes={themes}>
-                <LocalizationContextProvider initialLanguage='en' supportedLanguages={['fr', 'en']} translations={translations}>
-                    <Navigation />
-                </LocalizationContextProvider>
-            </ThemeContextProvider>
+            <MainApp />
         </Provider>
     );
+}
+
+export const MainApp: FC = () => {
+    const data: langType = useSelector((state: any) => state.langReducer);
+    return (
+        <LocalizationContextProvider initialLanguage={data.appLang} supportedLanguages={['fr', 'en']} translations={translations}>
+            <Navigation />
+        </LocalizationContextProvider>
+    )
 }
