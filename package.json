@@ -18,13 +18,17 @@
     "test:apk": "react-native run-android --variant=release"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.7.1",
     "@react-native-community/masked-view": "^0.1.6",
     "@react-navigation/bottom-tabs": "5.5.0",
     "@react-navigation/native": "^5.0.0",
     "@react-navigation/stack": "^5.0.0",
     "@types/react-redux": "^7.1.16",
     "@types/redux-thunk": "^2.1.0",
+    "react-native-localize": "^1.4.0",
+    "react-i18next": "^11.7.0",
+    "@react-native-community/async-storage": "^1.11.0",
+    "i18next": "^19.6.2",
+    "moment": "^2.27.0",
     "axios": "^0.21.1",
     "react": "16.13.1",
     "react-native": "0.63.2",

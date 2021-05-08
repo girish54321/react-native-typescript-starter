@@ -1,4 +1,5 @@
 import { AppView } from '@components/Flex/Flex'
+import LanguageSelector from '@components/LanguageSelector'
 import React from 'react'
 import { View } from 'react-native'
 import { List, Switch } from 'react-native-paper'
@@ -33,6 +34,7 @@ const SettingsScreen = () => {
         style={{
           flex: 1
         }}>
+        <LanguageSelector />
         <List.Item
           onPress={() => {
             appDispatch(changeTheme(!data.isDarkTheme))
@@ -42,17 +44,6 @@ const SettingsScreen = () => {
           left={props => <List.Icon {...props} icon="theme-light-dark" />}
           right={props => (
             <Switch value={data.isDarkTheme} onValueChange={toggleSwitch} />
-          )}
-        />
-        <List.Item
-          onPress={() => {
-            toggleLang();
-          }}
-          title={lang.appLang.toUpperCase()}
-          description="Change App Theme"
-          left={props => <List.Icon {...props} icon="theme-light-dark" />}
-          right={props => (
-            <Switch value={lang.appLang === 'en' ? true : false} onValueChange={toggleLang} />
           )}
         />
       </View>
