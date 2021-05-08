@@ -1,6 +1,4 @@
 import React, { FC } from "react";
-import { LocalizationContextProvider } from "./components/LocalizedContext/LocalizationContextProvider";
-import translations from "./localization/translations.json";
 import { Navigation } from "./navigation/Navigation";
 //* Redux
 import ReduxThunk from 'redux-thunk'
@@ -21,10 +19,6 @@ export const App: FC = () => {
 export const MainApp: FC = () => {
     const data: langType = useSelector((state: any) => state.langReducer);
     return (
-        // <LocalizationContextProvider initialLanguage={data.appLang}
-        //     supportedLanguages={['fr', 'en']}
-        //     translations={translations}>
         <Navigation />
-        // </LocalizationContextProvider>
     )
 }
