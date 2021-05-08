@@ -1,6 +1,7 @@
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationOptions, StackNavigationProp } from '@react-navigation/stack';
-import { Route } from 'models/constants/Route';
+import { Route } from 'constants/Route';
+
 import { FC, ReactNode } from 'react';
 
 /**

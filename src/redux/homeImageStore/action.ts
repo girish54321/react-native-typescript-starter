@@ -9,21 +9,16 @@ export const setUserData = () => async (dispatch: any, getState: any) => {
   })
   getUsers()
     .then((res: AxiosResponse) => {
-      console.log("res", res);
-
       if (res.status === 200) {
         let data: UserList[] = [];
         for (let i = 0; i < res.data.length; i++) {
           data.push(res.data[i]);
         }
-        console.log("we have the dta1");
-
         dispatch({
           type: ActionTypes.SET_USER,
           payload: data
         })
       } else {
-        console.log("we have the dta11");
         dispatch({
           type: ActionTypes.SET_USER_ERROR,
           payload: `Error :${res.status}`

@@ -21,6 +21,8 @@ import {
 } from 'react-native-paper'
 import { checkTheme } from '../redux/themeStore/action';
 import { Colors } from '../Config/Colors'
+import { StatusBar } from 'react-native';
+import { useTranslation } from 'react-i18next';
 const Stack = createStackNavigator();
 const SettingStack = createStackNavigator();
 const UserStack = createStackNavigator();
@@ -28,6 +30,7 @@ const Tab = createBottomTabNavigator();
 export const Navigation: FC = () => {
     const data: darkThemeType = useSelector((state: any) => state.themeReducer);
     const appDispatch = useDispatch();
+    const { t, i18n } = useTranslation();
     useEffect(() => {
         appDispatch(checkTheme());
     }, [])
@@ -42,7 +45,7 @@ export const Navigation: FC = () => {
             primary: Colors.primary,
             card: 'rgb(255, 255, 255)',
             // background: '#ffffff',
-            text: '#000'
+            text: '#000000'
         }
     }
 
@@ -62,7 +65,7 @@ export const Navigation: FC = () => {
 
     const HomeStack = () => {
         return (
-            <Stack.Navigator screenOptions={HOME_STACK_OPTIONS}>
+            <Stack.Navigator screenOptions={{ ...HOME_STACK_OPTIONS, title: t('starterApp') }}>
                 <Stack.Screen name={Route.WELCOME} component={WelcomeScreen} />
             </Stack.Navigator>
         )
@@ -87,6 +90,8 @@ export const Navigation: FC = () => {
 
     return (
         <PaperProvider theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
+            <StatusBar barStyle={"light-content"} hidden={false}
+                translucent={true} backgroundColor={Colors.primary} />
             <NavigationContainer
                 theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
                 <Tab.Navigator
@@ -110,9 +115,9 @@ export const Navigation: FC = () => {
                         inactiveTintColor: 'gray',
                     }}
                 >
-                    <Tab.Screen name={Route.APPSTACK} component={HomeStack} options={{ title: "Home" }} />
-                    <Tab.Screen name={Route.USERSCREEN} component={UsersListStack} options={{ title: "Users" }} />
-                    <Tab.Screen name={"Settings"} component={SettingScreenStack} options={{ title: "Settings" }} />
+                    <Tab.Screen name={Route.APPSTACK} component={HomeStack} options={{ title: t('home') }} />
+                    <Tab.Screen name={Route.USERSCREEN} component={UsersListStack} options={{ title: t('users') }} />
+                    <Tab.Screen name={"Settings"} component={SettingScreenStack} options={{ title: t('settings') }} />
                 </Tab.Navigator>
             </NavigationContainer>
         </PaperProvider>

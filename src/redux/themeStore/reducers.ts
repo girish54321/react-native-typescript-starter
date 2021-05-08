@@ -13,12 +13,16 @@ export const themeReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ActionTypes.CHNAGE_THEME:
       const jsonValue = JSON.stringify({ isDarkTheme: action.payload })
-      AsyncStorage.setItem(ActionTypes.CHECK_THEME, jsonValue)
+      AsyncStorage.setItem(ActionTypes.CHECK_THEME, jsonValue);
       return {
         ...state,
         isDarkTheme: action.payload
       }
-
+    case ActionTypes.CHECK_THEME:
+      return {
+        ...state,
+        isDarkTheme: action.payload
+      }
     default:
       return state
   }

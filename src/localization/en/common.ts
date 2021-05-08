@@ -4,4 +4,8 @@ export default {
   accountSuspended:
     'Hey {{ user.username }}, your account has been suspended until your last bill Rs {{ userBill.total }} is cleared.',
   flagsCount: 'Flags: {{ count, flags }}',
+  home: "Home",
+  users: "Users",
+  settings: "Settings",
+  starterApp: "Starter App"
 };
