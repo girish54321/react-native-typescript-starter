@@ -22,7 +22,7 @@ export const UsersScreen: NavigationScreen<Route.WELCOME> = (props: any) => {
     return (
         <AppView>
             <ScrollView style={style.scrollView}>
-                {data.users.map((value: UserList, index: Number) => {
+                {data.users.map((value: UserList, index: number) => {
                     return (
                         <ListItem name={value.name} email={value.email} image={"https://www.w3schools.com/w3images/avatar2.png"} />
                     )

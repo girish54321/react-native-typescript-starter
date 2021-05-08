@@ -21,8 +21,10 @@ export const App: FC = () => {
 export const MainApp: FC = () => {
     const data: langType = useSelector((state: any) => state.langReducer);
     return (
-        <LocalizationContextProvider initialLanguage={data.appLang} supportedLanguages={['fr', 'en']} translations={translations}>
-            <Navigation />
-        </LocalizationContextProvider>
+        // <LocalizationContextProvider initialLanguage={data.appLang}
+        //     supportedLanguages={['fr', 'en']}
+        //     translations={translations}>
+        <Navigation />
+        // </LocalizationContextProvider>
     )
 }
