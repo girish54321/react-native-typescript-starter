@@ -17,4 +17,5 @@ All of which have a non themed version, if you ever need it.
  
  Material Light             |  Material Dark
 :-------------------------:|:-------------------------:
-<img src="https://i.imgur.com/ntqWCa9.png" width="300px" />  |  <img src="https://i.imgur.com/nAPj0or.png" width="300px" />
+<img src="appImages/home.png" width="300px" />  |  <img src="appImages/settings.png" width="300px" />
+<img src="appImages/users.png" width="300px" />
