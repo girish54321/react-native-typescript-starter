@@ -15,7 +15,7 @@ Also included in this project is the support for custom themes (as well as two d
 
 All of which have a non themed version, if you ever need it.
  
- Material Light             |  Material Dark
+ Home             |  Settings
 :-------------------------:|:-------------------------:
 <img src="appImages/home.png" width="300px" />  |  <img src="appImages/settings.png" width="300px" />
-<img src="appImages/users.png" width="300px" />
+|<img src="appImages/users.png" width="300px" />
