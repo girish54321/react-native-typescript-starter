@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   Platform,
-  Image,
   KeyboardAvoidingView,
   View,
 } from 'react-native';
@@ -9,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { TextInput, Button, Title, useTheme } from 'react-native-paper';
 import { loginUser } from '../../redux/authStore/action';
 import { Colors } from 'Config/Colors';
+import SizedBox from '@components/SizedBox';
 const LoginScreen = ({ navigation: any }) => {
   const paperTheme = useTheme();
 
@@ -72,10 +72,6 @@ const LoginScreen = ({ navigation: any }) => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        {/* <Image
-          source={require('../../assets/app_icon.png')}
-          style={{ height: 100, width: 100 }}
-        /> */}
       </View>
       <View style={{ flex: 1, marginHorizontal: 22 }}>
 
@@ -109,6 +105,7 @@ const LoginScreen = ({ navigation: any }) => {
             />
           }
         />
+        <SizedBox size={16} />
         <Button
           mode="contained"
           contentStyle={{ height: 50 }}

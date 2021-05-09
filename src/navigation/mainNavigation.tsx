@@ -28,6 +28,7 @@ import LoadingView from '@components/loadingView';
 import { authType } from 'redux/authStore/authReducers';
 import AsyncStorage from '@react-native-community/async-storage';
 import { checkUserLogin } from 'redux/authStore/action';
+
 const Stack = createStackNavigator();
 const SettingStack = createStackNavigator();
 const UserStack = createStackNavigator();
@@ -150,7 +151,6 @@ export const Navigation: FC = () => {
                     <AuthStackScreens />
                 )}
             </NavigationContainer>
-
         </PaperProvider>
     );
 }
