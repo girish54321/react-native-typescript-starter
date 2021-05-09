@@ -7,5 +7,7 @@ export default {
   home: "Home",
   users: "Users",
   settings: "Settings",
-  starterApp: "Starter App"
+  starterApp: "Starter App",
+  darkLightMode: "Dark / Light Mode",
+  changeAppTheme: "Change App Theme"
 };

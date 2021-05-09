@@ -7,5 +7,7 @@ export default {
   home: "घर",
   users: "उपयोगकर्ताओं",
   settings: "समायोजन",
-  starterApp: "स्टार्टर ऐप"
+  starterApp: "स्टार्टर ऐप",
+  darkLightMode: "डार्क / लाइट मोड",
+  changeAppTheme: "ऐप थीम बदलें"
 };

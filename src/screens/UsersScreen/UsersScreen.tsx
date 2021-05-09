@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { StyleSheet, View, } from "react-native";
+import { StyleSheet, } from "react-native";
 import { NavigationScreen } from "../../navigation/NavigationTypings";
-import { Route } from "models/constants/Route";
 import { ScrollView } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { userListState } from "../../redux/homeImageStore/userListReducer";
@@ -9,6 +8,7 @@ import { setUserData } from "../../redux/homeImageStore/action";
 import { UserList } from "../../models/responseType/UserListResponse";
 import { ListItem } from "@components/ListItem/ListItem";
 import { AppView, } from "@components/Flex/Flex";
+import { Route } from "constants/Route";
 
 
 export const UsersScreen: NavigationScreen<Route.WELCOME> = (props: any) => {
@@ -24,7 +24,8 @@ export const UsersScreen: NavigationScreen<Route.WELCOME> = (props: any) => {
             <ScrollView style={style.scrollView}>
                 {data.users.map((value: UserList, index: number) => {
                     return (
-                        <ListItem name={value.name} email={value.email} image={"https://www.w3schools.com/w3images/avatar2.png"} />
+                        <ListItem name={value.name} email={value.email}
+                            image={"https://www.w3schools.com/w3images/avatar2.png"} />
                     )
                 })}
             </ScrollView>

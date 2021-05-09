@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage'
-import { ActionTypes } from '../../models/constants/ActionTypes'
-
+import { ActionTypes } from 'constants/ActionTypes';
 
 export const checkTheme = () => async (dispatch: any, getState: any) => {
   AsyncStorage.getItem(ActionTypes.CHECK_THEME).then((data) => {

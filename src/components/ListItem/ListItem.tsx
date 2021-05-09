@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Text, TextProps, View, } from "react-native";
 import { List, Avatar, Divider } from 'react-native-paper';
-export const ListItem: FC<TextProps> = props => {
+export const ListItem: FC<any> = props => {
     const { style, name, email, image } = props;
     return (
         <View style={{ margin: 8 }}>

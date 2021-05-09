@@ -2,7 +2,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { UsersScreen } from '@screens/UsersScreen/UsersScreen';
 import { WelcomeScreen } from '@screens/welcome/WelcomeScreen';
-import { Route } from 'models/constants/Route';
 import React, { FC, useEffect, } from 'react';
 import { HOME_STACK_OPTIONS, USERLIST_STACK_OPTIONS, } from './NavigationTypings';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -21,8 +20,9 @@ import {
 } from 'react-native-paper'
 import { checkTheme } from '../redux/themeStore/action';
 import { Colors } from '../Config/Colors'
-import { StatusBar } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { Route } from 'constants/Route';
+import AppStatusBar from '@components/appStatusBar/appStatusBar';
 const Stack = createStackNavigator();
 const SettingStack = createStackNavigator();
 const UserStack = createStackNavigator();
@@ -73,7 +73,7 @@ export const Navigation: FC = () => {
 
     const UsersListStack = () => {
         return (
-            <UserStack.Navigator screenOptions={{ ...USERLIST_STACK_OPTIONS, title: "Users" }}>
+            <UserStack.Navigator screenOptions={{ ...USERLIST_STACK_OPTIONS, title: t('users') }}>
                 <UserStack.Screen name={Route.USERSCREEN} component={UsersScreen} />
             </UserStack.Navigator>
         )
@@ -81,7 +81,7 @@ export const Navigation: FC = () => {
 
     const SettingScreenStack = () => {
         return (
-            <SettingStack.Navigator screenOptions={{ ...USERLIST_STACK_OPTIONS, title: "Settings" }}>
+            <SettingStack.Navigator screenOptions={{ ...USERLIST_STACK_OPTIONS, title: t('settings') }}>
                 <SettingStack.Screen name={Route.SETTINGS} component={SettingsScreen} />
             </SettingStack.Navigator>
         )
@@ -90,8 +90,7 @@ export const Navigation: FC = () => {
 
     return (
         <PaperProvider theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
-            <StatusBar barStyle={"light-content"} hidden={false}
-                translucent={true} backgroundColor={Colors.primary} />
+            <AppStatusBar isDarkTheme={data.isDarkTheme} />
             <NavigationContainer
                 theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
                 <Tab.Navigator

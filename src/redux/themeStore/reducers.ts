@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage'
-import { ActionTypes } from '../../models/constants/ActionTypes'
+import { ActionTypes } from 'constants/ActionTypes'
 
 export interface darkThemeType {
   isDarkTheme: boolean

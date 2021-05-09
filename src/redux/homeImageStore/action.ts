@@ -1,7 +1,7 @@
 import { getUsers } from '../../Network/index';
-import { ActionTypes } from '../../models/constants/ActionTypes'
 import { AxiosResponse } from 'axios';
 import { UserList } from '../../models/responseType/UserListResponse';
+import { ActionTypes } from 'constants/ActionTypes';
 
 export const setUserData = () => async (dispatch: any, getState: any) => {
   dispatch({

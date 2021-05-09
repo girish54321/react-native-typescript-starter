@@ -1,5 +1,5 @@
+import { ActionTypes } from 'constants/ActionTypes'
 import { UserList } from 'models/responseType/UserListResponse'
-import { ActionTypes } from '../../models/constants/ActionTypes'
 
 export interface userListState {
   isLoading: boolean;

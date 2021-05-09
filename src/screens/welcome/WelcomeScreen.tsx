@@ -10,7 +10,7 @@ export const WelcomeScreen = (props: any) => {
         <AppView>
             <Column alignItems="center" justifyContent="center" style={[style.container,]}>
                 <Text>homePage NS: {t('homePage:welcome')}</Text>
-                <Text>Deafult NS: {t('ok')}</Text>
+                <Text>Default NS: {t('ok')}</Text>
                 <AppButton
                     onPress={() => {
                         console.log("React Native");
