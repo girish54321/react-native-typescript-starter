@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from "axios";
 import { BASE_URL } from "./api.constant";
-import { UserList } from '../models/responseType/UserListResponse'
 import { USER_LIST } from "./apiEndpoints";
 const API_HEADER = {
   // "x-api-key": "your-access-token",

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Navigation } from "./navigation/Navigation";
+import { Navigation } from "./navigation/mainNavigation";
 import ReduxThunk from 'redux-thunk'
 import { Provider, } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'

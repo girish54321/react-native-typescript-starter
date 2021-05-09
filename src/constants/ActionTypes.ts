@@ -7,4 +7,7 @@ export enum ActionTypes {
     CHECK_THEME = 'CHECK_THEME',
     CHECK_LANG = "CHECK_LANG",
     CHNAGE_LANG = "CHNAGE_LANG",
+    LOGIN = 'LOGIN',
+    CHECK_LOGIN = 'CHECK_LOGIN',
+    LOGOUT = 'LOGOUT'
 }

@@ -23,17 +23,41 @@ import { Colors } from '../Config/Colors'
 import { useTranslation } from 'react-i18next';
 import { Route } from 'constants/Route';
 import AppStatusBar from '@components/appStatusBar/appStatusBar';
+import AuthStackScreens from './authStack/AuthStackScreens';
+import LoadingView from '@components/loadingView';
+import { authType } from 'redux/authStore/authReducers';
+import AsyncStorage from '@react-native-community/async-storage';
+import { checkUserLogin } from 'redux/authStore/action';
 const Stack = createStackNavigator();
 const SettingStack = createStackNavigator();
 const UserStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 export const Navigation: FC = () => {
     const data: darkThemeType = useSelector((state: any) => state.themeReducer);
+    const authState: authType = useSelector((state: any) => state.authReducer);
     const appDispatch = useDispatch();
+    const authDispatch = useDispatch();
     const { t, i18n } = useTranslation();
+
     useEffect(() => {
         appDispatch(checkTheme());
+        checkIfLoggedIn();
     }, [])
+
+    const checkIfLoggedIn = () => {
+        AsyncStorage.getItem('USER_LOGIN')
+            .then((value) => {
+                if (value) {
+                    let data = JSON.parse(value);
+                    authDispatch(checkUserLogin(data));
+                } else {
+                    authDispatch(checkUserLogin(null));
+                }
+            })
+            .catch(() => {
+                authDispatch(checkUserLogin(null));
+            });
+    };
 
     let CustomDefaultTheme = {
         ...PaperDefaultTheme,
@@ -87,38 +111,46 @@ export const Navigation: FC = () => {
         )
     }
 
+    if (authState.isLoading) {
+        return <LoadingView />;
+    }
 
     return (
         <PaperProvider theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
             <AppStatusBar isDarkTheme={data.isDarkTheme} />
             <NavigationContainer
                 theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
-                <Tab.Navigator
-                    screenOptions={({ route }) => ({
-                        tabBarIcon: ({ focused, color, size }) => {
-                            let iconName;
-                            if (route.name === Route.APPSTACK) {
-                                iconName = focused
-                                    ? 'home'
-                                    : 'home-outline';
-                            } else if (route.name === Route.USERSCREEN) {
-                                iconName = focused ? 'person' : 'person-outline';
-                            } else if (route.name === "Settings") {
-                                iconName = focused ? 'settings' : 'settings-outline';
-                            }
-                            return <Ionicons name={iconName} size={size} color={color} />;
-                        },
-                    })}
-                    tabBarOptions={{
-                        activeTintColor: Colors.primary,
-                        inactiveTintColor: 'gray',
-                    }}
-                >
-                    <Tab.Screen name={Route.APPSTACK} component={HomeStack} options={{ title: t('home') }} />
-                    <Tab.Screen name={Route.USERSCREEN} component={UsersListStack} options={{ title: t('users') }} />
-                    <Tab.Screen name={"Settings"} component={SettingScreenStack} options={{ title: t('settings') }} />
-                </Tab.Navigator>
+                {authState.userLoggedIn ? (
+                    <Tab.Navigator
+                        screenOptions={({ route }) => ({
+                            tabBarIcon: ({ focused, color, size }) => {
+                                let iconName;
+                                if (route.name === Route.APPSTACK) {
+                                    iconName = focused
+                                        ? 'home'
+                                        : 'home-outline';
+                                } else if (route.name === Route.USERSCREEN) {
+                                    iconName = focused ? 'person' : 'person-outline';
+                                } else if (route.name === "Settings") {
+                                    iconName = focused ? 'settings' : 'settings-outline';
+                                }
+                                return <Ionicons name={iconName} size={size} color={color} />;
+                            },
+                        })}
+                        tabBarOptions={{
+                            activeTintColor: Colors.primary,
+                            inactiveTintColor: 'gray',
+                        }}
+                    >
+                        <Tab.Screen name={Route.APPSTACK} component={HomeStack} options={{ title: t('home') }} />
+                        <Tab.Screen name={Route.USERSCREEN} component={UsersListStack} options={{ title: t('users') }} />
+                        <Tab.Screen name={"Settings"} component={SettingScreenStack} options={{ title: t('settings') }} />
+                    </Tab.Navigator>
+                ) : (
+                    <AuthStackScreens />
+                )}
             </NavigationContainer>
+
         </PaperProvider>
     );
 }
