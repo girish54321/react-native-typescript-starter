@@ -11,6 +11,6 @@ export default function AppStatusBar(props: AppStatusBarType) {
         <StatusBar
             barStyle={Platform.OS === "android" ? "light-content" : isDarkTheme ? "light-content" : "dark-content"} hidden={false}
             translucent={true}
-            backgroundColor={Colors.primary} />
+            backgroundColor={isDarkTheme ? "#000000" : Colors.primary} />
     )
 }

@@ -1,4 +1,4 @@
-import { userListReducer } from './homeImageStore/userListReducer'
+import { userListReducer } from './UserListStore/userListReducer'
 import { themeReducer } from './themeStore/reducers'
 import { authReducer } from './authStore/authReducers'
 import { combineReducers } from 'redux'
