@@ -1,15 +1,13 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   View,
-  TouchableOpacity,
   Dimensions,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
-
+import { List } from 'react-native-paper';
+import { Colors } from 'Config/Colors';
 const { width } = Dimensions.get('window');
-
 const LANGS = [
   { lngCode: 'en', label: 'English' },
   { lngCode: 'hi', label: 'हिन्दी' },
@@ -17,29 +15,31 @@ const LANGS = [
 
 const LanguageSelector = () => {
   const { t, i18n } = useTranslation();
+  const [expanded, setExpanded] = React.useState(true);
+  const handlePress = () => setExpanded(!expanded);
   const selectedLngCode = i18n.language;
   const setLng = (lngCode: string) => i18n.changeLanguage(lngCode);
+
   return (
     <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.select}>{t('languageSelector:selectLng')}</Text>
-      </View>
-      {LANGS.map((l) => {
-        const selected = l.lngCode === selectedLngCode;
-        return (
-          <TouchableOpacity
-            onPress={() => setLng(l.lngCode)}
-            key={l.lngCode}
-            disabled={selected}>
-            <View style={[styles.row, selected ? styles.selectedRow : {}]}>
-              <Text style={[selected ? styles.selectedText : styles.text]}>
-                {l.label}
-              </Text>
-              {selected && <Text>❤️</Text>}
-            </View>
-          </TouchableOpacity>
-        );
-      })}
+      <List.Accordion
+        title={t('languageSelector:selectLng')}
+        expanded={expanded}
+        onPress={handlePress}
+        left={props => <List.Icon {...props} icon="translate" style={{ marginLeft: 6 }} />}>
+        {LANGS.map((l) => {
+          const selected = l.lngCode === selectedLngCode;
+          return (
+            <List.Item
+              disabled={selected}
+              key={l.lngCode}
+              onPress={() => setLng(l.lngCode)}
+              title={l.label}
+              right={props => selected ? <List.Icon {...props} color={Colors.primary} icon={"check"} /> : null}
+            />
+          );
+        })}
+      </List.Accordion>
     </View>
   );
 };
@@ -64,12 +64,10 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   selectedRow: {
-    backgroundColor: 'rgb(45, 45, 45)',
+    backgroundColor: 'gray',
   },
   selectedText: {
-    color: 'rgb(231, 232, 235)',
+    // color: 'rgb(231, 232, 235)',
   },
-  text: {
-    color: 'rgb(45, 45, 45)',
-  },
+
 });

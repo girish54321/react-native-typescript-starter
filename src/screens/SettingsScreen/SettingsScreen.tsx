@@ -58,8 +58,8 @@ const SettingsScreen = () => {
         />
         <List.Item
           onPress={removeUser}
-          title="Log out"
-          description="Sing Out form app"
+          title={t('logOut')}
+          description={t('singOut')}
           left={(props) => <List.Icon {...props} icon="exit-to-app" />}
         />
       </View>

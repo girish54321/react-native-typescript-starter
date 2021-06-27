@@ -9,5 +9,7 @@ export default {
   settings: "समायोजन",
   starterApp: "स्टार्टर ऐप",
   darkLightMode: "डार्क / लाइट मोड",
-  changeAppTheme: "ऐप थीम बदलें"
+  changeAppTheme: "ऐप थीम बदलें",
+  logOut: "लॉग आउट",
+  singOut: "ऐप से साइन आउट करें"
 };

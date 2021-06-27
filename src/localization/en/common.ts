@@ -9,5 +9,7 @@ export default {
   settings: "Settings",
   starterApp: "Starter App",
   darkLightMode: "Dark / Light Mode",
-  changeAppTheme: "Change App Theme"
+  changeAppTheme: "Change App Theme",
+  logOut: "Log Out",
+  singOut: "Sign Out from app"
 };
