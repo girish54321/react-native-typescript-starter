@@ -17,8 +17,6 @@ export const getUsers = () =>
         res && resolve(res);
       })
       .catch((error) => {
-        // handle error
-        // reject(error);
         error && resolve(error.response);
       });
   });
