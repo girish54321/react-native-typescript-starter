@@ -1,11 +1,17 @@
 # React Native TypeScript Starter
 A React Native boilerplate project using Typescript and React Navigation.
  
- ## Demo
+ ## Demo iOS 
  
  Home             |  Settings
 :-------------------------:|:-------------------------:
 <img src="appImages/home.png" width="320px" />  |  <img src="appImages/settings.png" width="320px" />
+
+ ## Demo Android
+ 
+ Home             |  Settings
+:-------------------------:|:-------------------------:
+<img src="appImages/android/1.png" width="320px" />  |  <img src="appImages/android/2.png" width="320px" />
 
 ## Run Locally
 
