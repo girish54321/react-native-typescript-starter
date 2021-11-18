@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import {
   Platform,
   KeyboardAvoidingView,
+  NativeModules,
   View,
   Text,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { TextInput, Button, Title, useTheme, } from 'react-native-paper';
@@ -14,13 +15,17 @@ import SizedBox from '@components/SizedBox';
 const LoginScreen = ({ navigation: any }) => {
   const paperTheme = useTheme();
 
-  const [userData, setuserData] = React.useState({
+  const [userData, setuserData] = useState({
     email: '',
     password: '',
     secureTextEntry: true,
     isValidEmail: false,
     isValidPassword: false,
   });
+
+  const data = NativeModules.CalendarModule;
+  console.log("daa", data);
+
 
   const authDispatch = useDispatch();
   const saveUserLogin = () => {
@@ -81,9 +86,9 @@ const LoginScreen = ({ navigation: any }) => {
             // CalendarModule.createCalendarEvent('testName', 'testLocation');
           }}
           style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 }}>
-          <Text >Running {"ENV"}</Text>
+          <Text >Running {data.evn}</Text>
           <View style={{ marginTop: 8 }} />
-          <Text >Your Base URL is {"URL"}</Text>
+          <Text >Your Base URL is {data.baseUrl}</Text>
         </TouchableOpacity>
         <TextInput
           textAlign=""
