@@ -3,9 +3,11 @@ import {
   Platform,
   KeyboardAvoidingView,
   View,
+  Text,
+  TouchableOpacity,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { TextInput, Button, Title, useTheme } from 'react-native-paper';
+import { TextInput, Button, Title, useTheme, } from 'react-native-paper';
 import { loginUser } from '../../redux/authStore/action';
 import { Colors } from 'Config/Colors';
 import SizedBox from '@components/SizedBox';
@@ -74,14 +76,23 @@ const LoginScreen = ({ navigation: any }) => {
         }}>
       </View>
       <View style={{ flex: 1, marginHorizontal: 22 }}>
-
+        <TouchableOpacity
+          onPress={() => {
+            // CalendarModule.createCalendarEvent('testName', 'testLocation');
+          }}
+          style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 }}>
+          <Text >Running {"ENV"}</Text>
+          <View style={{ marginTop: 8 }} />
+          <Text >Your Base URL is {"URL"}</Text>
+        </TouchableOpacity>
         <TextInput
+          textAlign=""
           style={{ backgroundColor: paperTheme.colors.background }}
           label="Email"
           autoCapitalize="none"
           value={userData.email}
           placeholder="Email"
-          label="Email"
+
           onChangeText={textEmailChange}
           right={
             <TextInput.Icon
@@ -91,6 +102,7 @@ const LoginScreen = ({ navigation: any }) => {
           }
         />
         <TextInput
+          textAlign=""
           style={{ backgroundColor: paperTheme.colors.background }}
           secureTextEntry={userData.secureTextEntry}
           label="Password"
