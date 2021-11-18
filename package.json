@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "postinstall": "jetify",
-    "ios11": "react-native run-ios --simulator=\"iPhone 11\"",
+    "ios13": "react-native run-ios --simulator=\"iPhone 13\"",
     "ios8": "react-native run-ios --simulator=\"iPhone 8\"",
     "ios8p": "react-native run-ios --simulator=\"iPhone 8 Plus\"",
     "ios11promax": "react-native run-ios --simulator=\"iPhone 11 Pro Max\"",
