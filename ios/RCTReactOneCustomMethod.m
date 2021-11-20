@@ -25,6 +25,10 @@ RCT_EXPORT_METHOD(getPhoneID:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectB
 {
 // return @{ @"DEFAULT_EVENT_NAME": @"New Event" };
   NSString* buildEnvironment = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"BuildEnvironment"];
-    return @{ @"buildEnvironment": buildEnvironment };
+  NSString* buildBaseUrl = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"BaseURL"];
+    return @{
+      @"BUILD_ENV": buildEnvironment,
+      @"BASE_URL": buildBaseUrl
+    };
 }
 @end

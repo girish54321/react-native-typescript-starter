@@ -15,10 +15,12 @@ import java.util.HashMap;
 public class ConfigModule extends ReactContextBaseJavaModule {
 
     String baseUrl;
+    String env;
 
     ConfigModule(ReactApplicationContext context) {
         super(context);
         baseUrl = context.getResources().getString(R.string.base_url);
+        env = context.getResources().getString(R.string.BUILD_ENV);
     }
 
     @Override
@@ -30,8 +32,9 @@ public class ConfigModule extends ReactContextBaseJavaModule {
     @Override
     public Map<String, Object> getConstants() {
         final Map<String,Object> con = new HashMap<>();
-        con.put("evn",BuildConfig.FLAVOR);
-        con.put("baseUrl",baseUrl);
+        // con.put("evn",BuildConfig.FLAVOR);
+        con.put("BASE_URL",baseUrl);
+        con.put("BUILD_ENV",env);
         return con;
     }
 }

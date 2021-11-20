@@ -170,16 +170,19 @@ android {
         dev {
             resValue "string", "app_name", "En DEV"
             resValue "string", "base_url", "www.dev.com"
+            resValue "string", "BUILD_ENV", "DEV"
             applicationIdSuffix ".dev"
         }
         staging {
             resValue "string", "app_name", "En staging"
             resValue "string", "base_url", "www.staging.com"
+            resValue "string", "BUILD_ENV", "STAGING"
             applicationIdSuffix ".staging"
         }
         prod {
             resValue "string", "app_name", "En Prod"
             resValue "string", "base_url", "www.prod.com"
+            resValue "string", "BUILD_ENV", "PROD"
             applicationIdSuffix ".prod"
         }
     }

@@ -23,8 +23,10 @@ const LoginScreen = ({ navigation: any }) => {
     isValidPassword: false,
   });
 
-  const data = NativeModules.ReactOneCustomMethod;
-  console.log("daa", data.getConstants());
+  const data = Platform.OS == "ios" ? NativeModules.ReactOneCustomMethod : NativeModules.CalendarModule;
+  // console.log("daa", data.getConstants()); CalendarModule
+  console.log("data", data.getConstants());
+
 
 
   const authDispatch = useDispatch();
