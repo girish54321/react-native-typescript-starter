@@ -20,4 +20,11 @@ RCT_EXPORT_METHOD(getPhoneID:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectB
   NSString *deviceName = [[UIDevice currentDevice] name];
   resolve(deviceName);
 }
+
+- (NSDictionary *)constantsToExport
+{
+// return @{ @"DEFAULT_EVENT_NAME": @"New Event" };
+  NSString* buildEnvironment = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"BuildEnvironment"];
+    return @{ @"buildEnvironment": buildEnvironment };
+}
 @end

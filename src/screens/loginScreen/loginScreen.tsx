@@ -24,7 +24,7 @@ const LoginScreen = ({ navigation: any }) => {
   });
 
   const data = NativeModules.ReactOneCustomMethod;
-  console.log("daa", data);
+  console.log("daa", data.getConstants());
 
 
   const authDispatch = useDispatch();
