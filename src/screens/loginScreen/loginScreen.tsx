@@ -23,7 +23,7 @@ const LoginScreen = ({ navigation: any }) => {
     isValidPassword: false,
   });
 
-  const data = NativeModules.CalendarModule;
+  const data = NativeModules.ReactOneCustomMethod;
   console.log("daa", data);
 
 
@@ -39,6 +39,17 @@ const LoginScreen = ({ navigation: any }) => {
     } else {
 
     }
+  };
+
+  const getId = () => {
+    data.getPhoneID()
+      .then((res: string) => {
+        // setId('ID: ' + res);
+        console.log(res);
+      })
+      .catch((err: any) => {
+        console.error(err);
+      });
   };
 
   const textEmailChange = (val: any) => {
@@ -82,13 +93,15 @@ const LoginScreen = ({ navigation: any }) => {
       </View>
       <View style={{ flex: 1, marginHorizontal: 22 }}>
         <TouchableOpacity
-          onPress={() => {
-            // CalendarModule.createCalendarEvent('testName', 'testLocation');
-          }}
+          onPress={getId}
           style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 }}>
-          <Text >Running {data.evn}</Text>
+          {/* <Text >Running {data.evn}</Text> */}
+          <Text >Running </Text>
+
           <View style={{ marginTop: 8 }} />
-          <Text >Your Base URL is {data.baseUrl}</Text>
+          {/* <Text >Your Base URL is {data.baseUrl}</Text> */}
+          <Text >Your Base URL is</Text>
+
         </TouchableOpacity>
         <TextInput
           textAlign=""
