@@ -7,9 +7,9 @@
 //
 
 #import <React/RCTLog.h>
-#import "RCTReactOneCustomMethod.h"
+#import "RNConfigModule.h"
 
-@implementation RCTReactOneCustomMethod
+@implementation RNConfigModule
 
 // To export a module named ReactOneCustomMethod
 RCT_EXPORT_MODULE();

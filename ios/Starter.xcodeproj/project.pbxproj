@@ -20,7 +20,7 @@
 		7D7078787045BF21150027B7 /* libPods-Starter-StarterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5991900CC3320027F1F0DB55 /* libPods-Starter-StarterTests.a */; };
 		ACBB65DA50BFF97ACC66C126 /* libPods-Starter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1FD6320E0C9769D4BBA611 /* libPods-Starter.a */; };
 		E650C15E8BDF775B64E24412 /* libPods-Starter-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 839FB031F642E07B8CA93B0C /* libPods-Starter-tvOS.a */; };
-		F4C42B0E2748E2C100955F2B /* RCTReactOneCustomMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C42B0D2748E2C100955F2B /* RCTReactOneCustomMethod.m */; };
+		F4C42B0E2748E2C100955F2B /* RNConfigModule.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C42B0D2748E2C100955F2B /* RNConfigModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +93,8 @@
 		E0E6A739A38AE435D2839F3F /* Pods-Starter-StarterTests.debugdev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter-StarterTests.debugdev.xcconfig"; path = "Target Support Files/Pods-Starter-StarterTests/Pods-Starter-StarterTests.debugdev.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F4C42B0C2748E2C100955F2B /* RCTReactOneCustomMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTReactOneCustomMethod.h; sourceTree = "<group>"; };
-		F4C42B0D2748E2C100955F2B /* RCTReactOneCustomMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTReactOneCustomMethod.m; sourceTree = "<group>"; };
+		F4C42B0C2748E2C100955F2B /* RNConfigModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNConfigModule.h; sourceTree = "<group>"; };
+		F4C42B0D2748E2C100955F2B /* RNConfigModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNConfigModule.m; sourceTree = "<group>"; };
 		FC74C5968CD47A3D6097F9AF /* Pods-Starter.releasestaging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter.releasestaging.xcconfig"; path = "Target Support Files/Pods-Starter/Pods-Starter.releasestaging.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,8 +188,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				F4C42B0C2748E2C100955F2B /* RCTReactOneCustomMethod.h */,
-				F4C42B0D2748E2C100955F2B /* RCTReactOneCustomMethod.m */,
+				F4C42B0C2748E2C100955F2B /* RNConfigModule.h */,
+				F4C42B0D2748E2C100955F2B /* RNConfigModule.m */,
 				13B07FAE1A68108700A75B9A /* Starter */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* StarterTests */,
@@ -692,7 +692,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C42B0E2748E2C100955F2B /* RCTReactOneCustomMethod.m in Sources */,
+				F4C42B0E2748E2C100955F2B /* RNConfigModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);

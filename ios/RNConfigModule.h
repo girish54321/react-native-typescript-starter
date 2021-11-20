@@ -8,6 +8,6 @@
 
 //  RCTCalendarModule.h
 #import <React/RCTBridgeModule.h>
-@interface RCTReactOneCustomMethod : NSObject <RCTBridgeModule>
+@interface RNConfigModule : NSObject <RCTBridgeModule>
 @end
 

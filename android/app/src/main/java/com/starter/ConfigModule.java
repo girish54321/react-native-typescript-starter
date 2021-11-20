@@ -25,7 +25,7 @@ public class ConfigModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-        return "CalendarModule";
+        return "RNConfigModule";
     }
 
     @Nullable

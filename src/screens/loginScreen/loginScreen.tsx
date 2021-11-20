@@ -8,13 +8,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { TextInput, Button, Title, useTheme, } from 'react-native-paper';
+import { TextInput, Button, useTheme, } from 'react-native-paper';
 import { loginUser } from '../../redux/authStore/action';
 import { Colors } from 'Config/Colors';
 import SizedBox from '@components/SizedBox';
-const LoginScreen = ({ navigation: any }) => {
+const LoginScreen = () => {
   const paperTheme = useTheme();
-
   const [userData, setuserData] = useState({
     email: '',
     password: '',
@@ -22,12 +21,8 @@ const LoginScreen = ({ navigation: any }) => {
     isValidEmail: false,
     isValidPassword: false,
   });
-
-  const data = Platform.OS == "ios" ? NativeModules.ReactOneCustomMethod : NativeModules.CalendarModule;
-  // console.log("daa", data.getConstants()); CalendarModule
-  console.log("data", data.getConstants());
-
-
+  const data = NativeModules.RNConfigModule;
+  console.log("data", data);
 
   const authDispatch = useDispatch();
   const saveUserLogin = () => {
@@ -41,17 +36,6 @@ const LoginScreen = ({ navigation: any }) => {
     } else {
 
     }
-  };
-
-  const getId = () => {
-    data.getPhoneID()
-      .then((res: string) => {
-        // setId('ID: ' + res);
-        console.log(res);
-      })
-      .catch((err: any) => {
-        console.error(err);
-      });
   };
 
   const textEmailChange = (val: any) => {
@@ -95,15 +79,10 @@ const LoginScreen = ({ navigation: any }) => {
       </View>
       <View style={{ flex: 1, marginHorizontal: 22 }}>
         <TouchableOpacity
-          onPress={getId}
           style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 }}>
-          {/* <Text >Running {data.evn}</Text> */}
-          <Text >Running </Text>
-
+          <Text >Running {data.BUILD_ENV}</Text>
           <View style={{ marginTop: 8 }} />
-          {/* <Text >Your Base URL is {data.baseUrl}</Text> */}
-          <Text >Your Base URL is</Text>
-
+          <Text >Your Base URL is {data.BASE_URL}</Text>
         </TouchableOpacity>
         <TextInput
           textAlign=""
@@ -112,7 +91,6 @@ const LoginScreen = ({ navigation: any }) => {
           autoCapitalize="none"
           value={userData.email}
           placeholder="Email"
-
           onChangeText={textEmailChange}
           right={
             <TextInput.Icon
