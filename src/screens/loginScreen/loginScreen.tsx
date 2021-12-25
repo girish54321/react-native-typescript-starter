@@ -2,23 +2,27 @@ import React, { useState } from 'react';
 import {
   Platform,
   KeyboardAvoidingView,
+  NativeModules,
   View,
+  Text,
+  TouchableOpacity
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { TextInput, Button, Title, useTheme } from 'react-native-paper';
+import { TextInput, Button, useTheme, } from 'react-native-paper';
 import { loginUser } from '../../redux/authStore/action';
 import { Colors } from 'Config/Colors';
 import SizedBox from '@components/SizedBox';
-const LoginScreen = ({ navigation: any }) => {
+const LoginScreen = () => {
   const paperTheme = useTheme();
-
-  const [userData, setuserData] = React.useState({
+  const [userData, setuserData] = useState({
     email: '',
     password: '',
     secureTextEntry: true,
     isValidEmail: false,
     isValidPassword: false,
   });
+  const data = NativeModules.RNConfigModule;
+  console.log("data", data);
 
   const authDispatch = useDispatch();
   const saveUserLogin = () => {
@@ -74,14 +78,19 @@ const LoginScreen = ({ navigation: any }) => {
         }}>
       </View>
       <View style={{ flex: 1, marginHorizontal: 22 }}>
-
+        <TouchableOpacity
+          style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 }}>
+          <Text >Running {data.BUILD_ENV}</Text>
+          <View style={{ marginTop: 8 }} />
+          <Text >Your Base URL is {data.BASE_URL}</Text>
+        </TouchableOpacity>
         <TextInput
+          textAlign=""
           style={{ backgroundColor: paperTheme.colors.background }}
           label="Email"
           autoCapitalize="none"
           value={userData.email}
           placeholder="Email"
-          label="Email"
           onChangeText={textEmailChange}
           right={
             <TextInput.Icon
@@ -91,6 +100,7 @@ const LoginScreen = ({ navigation: any }) => {
           }
         />
         <TextInput
+          textAlign=""
           style={{ backgroundColor: paperTheme.colors.background }}
           secureTextEntry={userData.secureTextEntry}
           label="Password"
