@@ -1,4 +1,4 @@
-# React Native TypeScript Starter
+# React Native TypeScript Starter with Flavors ❤️
 A React Native boilerplate project using Typescript and React Navigation.
  
  ## Demo iOS 
@@ -33,12 +33,22 @@ Install dependencies
   yarn
 ```
 
-On Android
+On Android DEV
 
 ```bash
-  yarn android
+  yarn android_dev_debug
 ```
-On iOS
+On Android Staging
+
+```bash
+  yarn android_staging_debug
+```
+On Android PROD
+
+```bash
+  yarn android_prod_debug
+```
+On iOS or use XCode
 
 ```bash
   cd ios && pod install && cd .. && yarn run ios11
