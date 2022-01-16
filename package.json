@@ -23,7 +23,9 @@
     "android_staging_dev": "cd android && ./gradlew assembleStagingRelease",
     "android_prod_dev": "cd android && ./gradlew assembleProdRelease",
     "deply_stageing":"appcenter codepush release-react -a parategirish50-gmail.com/Starter-App -d Staging",
-    "deply_prod":"appcenter codepush release-react -a parategirish50-gmail.com/Starter-App -d Production"
+    "deply_prod":"appcenter codepush release-react -a parategirish50-gmail.com/Starter-App -d Production",
+    "ios_deploy_stageing":"appcenter codepush release-react -a parategirish50-gmail.com/Starter-App-iOS -d Staging",
+    "ios_deploy_prod":"appcenter codepush release-react -a parategirish50-gmail.com/Starter-App-iOS -d Production"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",
