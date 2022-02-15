@@ -762,7 +762,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Starter.app/Starter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarterDev.app/StarterDev";
 			};
 			name = DebugDev;
 		};
@@ -782,7 +782,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Starter.app/Starter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarterDev.app/StarterDev";
 			};
 			name = ReleaseDev;
 		};
@@ -1398,7 +1398,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Starter.app/Starter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarterDev.app/StarterDev";
 			};
 			name = DebugStaging;
 		};
@@ -1609,7 +1609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Starter.app/Starter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarterDev.app/StarterDev";
 			};
 			name = ReleaseStaging;
 		};
@@ -1862,7 +1862,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Starter.app/Starter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarterDev.app/StarterDev";
 			};
 			name = DebugProd;
 		};
@@ -2073,7 +2073,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Starter.app/Starter";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StarterDev.app/StarterDev";
 			};
 			name = ReleaseProd;
 		};
