@@ -28,6 +28,7 @@ import LoadingView from '@components/loadingView';
 import { authType } from 'redux/authStore/authReducers';
 import AsyncStorage from '@react-native-community/async-storage';
 import { checkUserLogin } from 'redux/authStore/action';
+import { setTopLevelNavigator } from './NavigationService';
 
 const Stack = createStackNavigator();
 const SettingStack = createStackNavigator();
@@ -120,6 +121,9 @@ export const Navigation: FC = () => {
         <PaperProvider theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
             <AppStatusBar isDarkTheme={data.isDarkTheme} />
             <NavigationContainer
+                ref={(navigatorRef: any) => {
+                    setTopLevelNavigator(navigatorRef);
+                }}
                 theme={data.isDarkTheme ? CustomDarkTheme : CustomDefaultTheme}>
                 {authState.userLoggedIn ? (
                     <Tab.Navigator
