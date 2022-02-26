@@ -76,11 +76,13 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.ts",
+    entryFile: "index.js",
     enableHermes: false,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -120,12 +122,9 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    ndkVersion rootProject.ext.ndkVersion
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId "com.starter"
@@ -153,6 +152,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            // resValue "string", "CodePushDeploymentKey", 'Hdb4t1CJ7wEMLIy_cujCBq56vGait646Y6hvL'
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -160,6 +160,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            // resValue "string", "CodePushDeploymentKey", 'K9YDp0RRMLXCpVbYCvs7hAcLb4nHLJUwtvEyq'
         }
     }
 
@@ -171,18 +172,21 @@ android {
             resValue "string", "app_name", "Starter DEV"
             resValue "string", "base_url", "www.dev.com"
             resValue "string", "BUILD_ENV", "DEV"
+            resValue "string", "CodePushDeploymentKey", "Hdb4t1CJ7wEMLIy_cujCBq56vGait646Y6hvL"
             applicationIdSuffix ".dev"
         }
         staging {
             resValue "string", "app_name", "Starter staging"
             resValue "string", "base_url", "www.staging.com"
             resValue "string", "BUILD_ENV", "STAGING"
+            resValue "string", "CodePushDeploymentKey", "Hdb4t1CJ7wEMLIy_cujCBq56vGait646Y6hvL"
             applicationIdSuffix ".staging"
         }
         prod {
             resValue "string", "app_name", "Starter"
             resValue "string", "base_url", "www.prod.com"
             resValue "string", "BUILD_ENV", "PROD"
+            resValue "string", "CodePushDeploymentKey", "K9YDp0RRMLXCpVbYCvs7hAcLb4nHLJUwtvEyq"
             applicationIdSuffix ".prod"
         }
     }
@@ -192,11 +196,12 @@ android {
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // https://developer.android.com/studio/build/configure-apk-splits.html
+            // Example: versionCode 1 will generate 1001 for armeabi-v7a, 1002 for x86, etc.
             def versionCodes = ["armeabi-v7a": 1, "x86": 2, "arm64-v8a": 3, "x86_64": 4]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
-                        versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+                        defaultConfig.versionCode * 1000 + versionCodes.get(abi)
             }
 
         }

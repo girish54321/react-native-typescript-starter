@@ -82,7 +82,7 @@ const LoginScreen = () => {
           style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', flex: 1 }}>
           <Text >Running {data.BUILD_ENV}</Text>
           <View style={{ marginTop: 8 }} />
-          <Text >Your Base URL is {data.BASE_URL}</Text>
+          <Text >PROD ONLY Your Base URL is {data.BASE_URL}</Text>
         </TouchableOpacity>
         <TextInput
           textAlign=""

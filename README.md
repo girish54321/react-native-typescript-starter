@@ -1,17 +1,11 @@
 # React Native TypeScript Starter with Flavors ❤️
 A React Native boilerplate project using Typescript and React Navigation.
  
- ## Demo iOS 
- 
- Home             |  Settings
-:-------------------------:|:-------------------------:
-<img src="appImages/home.png" width="320px" />  |  <img src="appImages/settings.png" width="320px" />
+<img width="1604"  src="appImages/banner.png?raw=true">
 
- ## Demo Android
- 
- Home             |  Settings
-:-------------------------:|:-------------------------:
-<img src="appImages/android/1.png" width="320px" />  |  <img src="appImages/android/2.png" width="320px" />
+##  
+
+<img width="1604"  src="appImages/banner2.png?raw=true">
 
 ## Run Locally
 
